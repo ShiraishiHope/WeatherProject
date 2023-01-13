@@ -1,0 +1,28 @@
+body{
+    background-color: #7cbbe7;
+    color : #fefffe;
+}
+section{
+    
+}
+.section1{
+    width: 1000px;
+    height: 400px;
+    margin: auto auto;
+    background-color: #ffffff;
+    color: rgb(19, 19, 19);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    border-radius: 30px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.imgsmaller {
+    width: 50px;
+    height: 50px;
+}
