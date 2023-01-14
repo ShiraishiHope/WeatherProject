@@ -1,8 +1,9 @@
 <?php
 
-require_once('../src/controllers/HomeController.php');
+
 
 $_page = 'home';
+$city = "";
 
 if (isset($_GET['page']) && !empty($_GET['page'])) {
     switch ($_GET['page']) {
@@ -16,6 +17,15 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
     }
 }
 
-include_once '../views/pages/' . $_page . '.php';
+if (isset($_GET['city']) && !empty($_GET['city'])) 
+    {
+        $city=$_GET['city'];
+    }
+echo $city;
+
+include_once('../src/controllers/HomeController.php');
+
+
+include_once '../views/home/' . $_page . '.php';
 
 ?>
