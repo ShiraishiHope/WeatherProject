@@ -11,7 +11,9 @@
 <section>
      <p><label for="city">City :</label><p>
     <input type="text" id="city" name="city" required>
-    <button type="submit"> Choisir ma ville </button>
+    <button type="submit"> OK </button>
+    <button onclick="getLocation()">my position</button>
+
     <p><?php echo date('l jS \of F Y h:i A'); ?></p>
     <span> <img class=imgnow src="https://cdn.icon-icons.com/icons2/1370/PNG/512/if-weather-3-2682848_90785.png" alt="icone"> </span>
     <p> 26°C <p>
@@ -58,5 +60,6 @@
             <p> 4 m/s <p>
         </div>
     </div>
+    <script src="showPosition.js"></script>
 </body>
 </html>
