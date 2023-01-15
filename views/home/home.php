@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>WeatherApp</title>
-  <link rel="stylesheet" type="text/css" href="../src/assets/css/style.css" >
+  <link rel="stylesheet" type="text/css" href="/src/assets/css/style.css" >
   
    <?php //include_once "../src/controllers/homeController.php" ?>  
     
