@@ -11,13 +11,20 @@ class Meteo {
   
     public function __construct() {
         
-        $this->  today=date(Y-m-d);
+       
     }
     //Method to get the json file from the API, decode it, and then organize the data
-    function requestAPI(Geocoding $geocoding){
-        
-        $openMeteoJson = file_get_contents("https://api.open-meteo.com/v1/dwd-icon?latitude=" . $geocoding->getLatitude() . "&longitude=" . $geocoding->getLongitude() . "&hourly=temperature_2m,relativehumidity_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&timezone=auto&start_date=".$this->today."&end_date=2023-01-15");
+    function requestAPI(object $class){
+        $today = date('Y-m-d');
+        $lastDay = date('Y-m-d',strtotime($today.'+6 days'));
+        $openMeteoJson = file_get_contents("https://api.open-meteo.com/v1/dwd-icon?latitude=" . $class->getLatitude() . "&longitude=" . $class->getLongitude() . "&hourly=temperature_2m,relativehumidity_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&timezone=auto&start_date=".$today."&end_date=".$lastDay);
         $openMeteoObject = json_decode($openMeteoJson);
+        echo $class->getLatitude();
+        echo $today;
+        echo $lastDay;
+        echo"<pre>";
+        var_dump($openMeteoObject);
+        echo"</pre>";
         $hourlyTemp = $this->openMeteoObject->hourly->temperature_2m;
         $hourlyHumidity = $this->openMeteoObject->data->hourly->relativehumidity_2m;
         $hourlyWeathercode = $this->openMeteoObject->data->hourly->weathercode;
