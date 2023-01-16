@@ -32,7 +32,7 @@
     </div>
     <p class="dateOfCurrentDay"><?php echo date('l jS \of F Y h:i A'); ?></p>
     <div class="currentMeteo">
-    <span> <img src="/src/assets/img/icon_snow.png" rel="icon"  alt="icone"> </span>
+    <span> <img src="../src/assets/img/icon_snow.png" rel="icon"  alt="icone"> </span>
     <p class="sizeCurrentTemperature"> 26°C <p>
 </div>
 </section>
@@ -42,10 +42,10 @@
     {
         echo " <div>
               <p> Now </p>
-              <img class='sizeIcone' src='/src/assets/img/icon_rain.png' alt='icone'> <br>
-                <img class='iconeSmaller' src='/src/assets/img/icon_humidite.png' alt='icone'>
+              <img class='sizeIcone' src='../src/assets/img/icon_rain.png' alt='icone'> <br>
+                <img class='iconeSmaller' src='../src/assets/img/icon_humidite.png' alt='icone'>
                 <p> 14% </p>
-                <img class='iconeSmaller' src='/src/assets/img/icon_wind-face.png' alt='icone'>
+                <img class='iconeSmaller' src='../src/assets/img/icon_wind-face.png' alt='icone'>
                 <p> 4 m/s <p>
                 </div>";
     }?>    
@@ -66,10 +66,10 @@
                 echo $nameday;
                 echo "</p>
                 </div>
-                <img class='sizeIcone' src='/src/assets/img/icon_sun.png' alt='icone'>
-                <img class='iconeSmaller' src='/src/assets/img/icon_humidite.png' alt='icone'>
+                <img class='sizeIcone' src='../src/assets/img/icon_sun.png' alt='icone'>
+                <img class='iconeSmaller' src='../src/assets/img/icon_humidite.png' alt='icone'>
                 <p> 14% </p>
-                <img class='iconeSmaller' src='/src/assets/img/icon_wind-face.png' alt='icone'>
+                <img class='iconeSmaller' src='../src/assets/img/icon_wind-face.png' alt='icone'>
                 <p> 4 m/s <p>
                 </div>";
 }
