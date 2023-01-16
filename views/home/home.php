@@ -3,10 +3,14 @@
 <head>
   <meta charset="utf-8">
   <title>WeatherApp</title>
+<<<<<<< HEAD
+  <link rel="stylesheet" type="text/css" href="/src/assets/css/style.css" >
+=======
   <link rel="stylesheet" type="text/css" href="../src/assets/css/style.css" >
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+>>>>>>> cd7de8b059e8eb365b8c9c5b17ca2be994470376
   
    <?php //include_once "../src/controllers/homeController.php" ?>  
     
