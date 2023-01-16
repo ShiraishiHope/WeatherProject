@@ -5,10 +5,13 @@
   <title>WeatherApp</title>
   <link rel="stylesheet" type="text/css" href="../src/assets/css/style.css" >
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
-  <?php //include_once "../src/controllers/homeController.php" ?>  
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+>>>>>>> cd7de8b059e8eb365b8c9c5b17ca2be994470376
+  
+   <?php //include_once "../src/controllers/homeController.php" ?>  
+    
+
 </head>
 <body>
 <div class="container">
@@ -22,7 +25,7 @@
   <div>
     <form action="" method="get">
     <label for="city">City :</label>
-    <input type="text" id="city" name="city">
+    <input type="text" id="city" name="city" required>
     <button type="submit"> OK </button>
     <button onclick="getLocation()" class="selectButton">Give my position</button>
     </form>

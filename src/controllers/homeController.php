@@ -1,14 +1,22 @@
 <?php
-include_once "../src/models/geocoding.php";
-include_once "../src/models/weathercodeImg.php";
+include_once "../src/models/geocodingModel.php";
+include_once "../src/models/meteoModel.php";
 
 
-$cityGeocoding = new Geocoding($city);
-// echo "<pre>";
-// print_r($cityGeocoding);
-// echo "</pre>";
+$cityGeocoding= new Geocoding($city);
+$cityGeocoding->requestOMLocalisation();
 
-$longitude = $cityGeocoding ->getLongitude();
+echo "<pre>";
+print_r($cityGeocoding);
+echo "</pre>";
 
-$latitude =  $cityGeocoding->getLatitude();
+echo $cityGeocoding->getLatitude();
 
+$meteoCity = new Meteo();
+$meteoCity->requestAPI($cityGeocoding);
+
+
+
+echo "<pre>";
+print_r($meteoCity);
+echo "</pre>";

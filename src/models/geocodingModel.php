@@ -2,9 +2,9 @@
 
 class Geocoding 
 {
-    private string $city;
-    private float $latitude;
-    private float $longitude;
+    private  $city;
+    private  $latitude;
+    private  $longitude;
 
     public function __construct($city)
     {
@@ -16,6 +16,7 @@ class Geocoding
     function requestOMLocalisation(){
         $json_data = file_get_contents("https://geocoding-api.open-meteo.com/v1/search?name=" . $this->city);
         $decodeData = json_decode($json_data);
+
         $this->latitude = $decodeData->results[0]->latitude;
         $this->longitude = $decodeData->results[0]->longitude;
     }
