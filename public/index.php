@@ -23,7 +23,7 @@ if (isset($_GET['city']) && !empty($_GET['city']))
     }
 echo $city;
 
-// include_once('../src/controllers/HomeController.php');
+include_once('../src/controllers/HomeController.php');
 
 
 include_once '../views/home/' . $_page . '.php';
