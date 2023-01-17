@@ -1,53 +1,72 @@
-body{
-    background-color: #7cbbe7;
-    color : #fefffe;
-    font-family: 'Roboto Condensed', sans-serif;
+.theme-light{
+    --Background-color:#7cbbe7;
+    --text-color: rgb(19, 19, 19);
+    --text-color-temp:#090707;
+    --bg-color-bloc: #ffffff;
 }
 
-.affall{
+.theme-dark{
+    --Background-color: #001c55;
+    --text-color: #364958;
+    --text-color-temp:#ced3dc;
+    --bg-color-bloc: #00264f;
+}
+button{
+    border-radius: 20px;
+}
+
+body{
+    background-color: var(--Background-color);
+    color: var(--text-color-temp);
+    font-family: 'Roboto Condensed', sans-serif;
     margin-left: 5%;
+    margin-right: 5%;
     margin-top: 50px;
 }
-.affnow{
+
+.currentMeteo{
    display: flex;
    align-items: center;
-   margin-top: 0%;
 }
 
-.date1{
-    font-size: 30px;
-    
+.currentMeteo img
+{
+    width: 200px;
+    height: 200px;
 }
 
-.affnow p{
-    margin: 0%;
+.dateOfCurrentDay{
+    font-size: 30px; 
 }
 
-.size{
+.dateOfCurrentDay p{
+    margin: 0;
+}
+
+.sizeCurrentTemperature{
     font-size: 200px;
+    margin: 0;
 }
 
-
-.sectionaffweather{
+.weatherBy5hours{
     width: 900px;
     height: 350px;
     margin: auto auto;
-    padding: auto;
-    background-color: #ffffff;
-    color: rgb(19, 19, 19);
+    background-color: var(--bg-color-bloc);
+    color: var(--text-color);
     display: flex;
     justify-content: space-evenly;
     border-radius: 30px;
     text-align: center;
 }
 
-.sectionaffweather2{
+.weatherByWeek{
     width: 900px;
     height: 900px;
     margin: auto auto;
     margin-top: 20px;
-    background-color: #ffffff;
-    color: rgb(19, 19, 19);
+    background-color: var(--bg-color-bloc);
+    color: var(--text-color);
     border-radius: 30px;
     display :flex;
     flex-direction: column;
@@ -55,22 +74,115 @@ body{
     font-size: 30px;
 }
 
-.displayinline{
+.displayInLine{
     display: flex;
     justify-content: space-evenly;
     
 }
 
-img {
+.dateSize{
+    width: 100px;
+}
+
+.sizeIcone {
     width: 100px;
     height: 100px;
 }
 
-.imgnow{
-    width: 200px;
-    height: 200px;
-}
-.imgsmaller {
+.iconeSmaller {
     width: 30px;
     height: 30px;
 }
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: var(--color-secondary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .container h1 {
+    color: var(--font-color);
+    font-family: sans-serif;
+  }
+  .container button {
+    color: var(--font-color);
+    background: var(--color-primary);
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 5px;
+  }
+  
+  /* The switch - the box around the slider */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    left: 0px;
+    bottom: 4px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    box-shadow: 0 0px 15px #2020203d;
+    background: white url('https://i.ibb.co/FxzBYR9/night.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196f3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+    background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
