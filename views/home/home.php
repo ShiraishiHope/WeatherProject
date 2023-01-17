@@ -17,22 +17,28 @@
 
 </head>
 <body>
-<div class="container">
-    <label id="switch" class="switch">
+<header>
+<div class="header-left">
+        <label id="switch" class="switch">
             <input type="checkbox" onchange="toggleTheme()" id="slider">
             <span class="slider round"></span>
         </label>
     <!-- <button id="switch" onclick="toggleTheme()">Switch</button> -->
 </div>
-<section>
-  <div>
-    <form action="" method="get">
-    <label for="city">City :</label>
-    <input type="text" id="city" name="city">
-    <button type="submit"> OK </button>
-    <button onclick="getLocation()" class="selectButton">Give my position</button>
-    </form>
+<div>
+        <form action="" method="get">
+            <label for="city">City :</label>
+            <input type="text" id="city" name="city" required>
+            <button type="submit"> OK </button>
+        </form>
     </div>
+    <div>
+        <button onclick="getLocation()">Give my position</button>
+    </div>
+
+</header>
+<section>
+
     <p class="dateOfCurrentDay"><?php echo date('l jS \of F Y h:i A'); ?></p>
     <div class="currentMeteo">
     <span> <img src="../src/assets/img/icon_snow.png" rel="icon"  alt="icone"> </span>
