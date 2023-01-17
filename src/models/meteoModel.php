@@ -19,12 +19,6 @@ class Meteo {
         $lastDay = date('Y-m-d',strtotime($today.'+6 days'));
         $openMeteoJson = file_get_contents("https://api.open-meteo.com/v1/dwd-icon?latitude=" . $class->getLatitude() . "&longitude=" . $class->getLongitude() . "&hourly=temperature_2m,relativehumidity_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&timezone=auto&start_date=".$today."&end_date=".$today);
         $openMeteoObject = json_decode($openMeteoJson);
-        echo $class->getLatitude();
-        echo $today;
-        echo $lastDay;
-        echo"<pre>";
-        var_dump($openMeteoObject);
-        echo"</pre>";
         $this->hourlyTemp = $openMeteoObject->hourly->temperature_2m;
         $this->hourlyHumidity = $openMeteoObject->hourly->relativehumidity_2m;
         $this->hourlyWeathercode = $openMeteoObject->hourly->weathercode;

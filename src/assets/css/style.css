@@ -1,3 +1,9 @@
+*
+{
+margin:0;
+padding:0;
+}
+
 .theme-light{
     --Background-color:#7cbbe7;
     --text-color: rgb(19, 19, 19);
@@ -21,7 +27,29 @@ body{
     font-family: 'Roboto Condensed', sans-serif;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 50px;
+    margin-top: 0;
+}
+
+/* fixed header */
+header
+{
+  display:flex;
+  position:sticky;
+  top:0;
+  width:90vw;
+  height:64px;
+  flex-direction: row;
+  background-color: var(--Background-color);
+}
+
+header div
+{
+margin:auto 0;
+}
+/* forces a margin between the toggle theme and the search*/
+header .header-left
+{
+  margin-right:auto;
 }
 
 .currentMeteo{
@@ -121,6 +149,7 @@ body{
     display: inline-block;
     width: 60px;
     height: 34px;
+
   }
   
   /* Hide default HTML checkbox */
