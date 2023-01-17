@@ -6,8 +6,9 @@ function getLocation() {
     } else { 
        alert ("Geolocation is not supported by this browser.");
     }
+    
 }
 
 function redirectToPosition(position) {
-    window.location='home.php?latitude='+position.coords.latitude+'&longitude='+position.coords.longitude;
+window.location='getPosition.php?latitude='+position.coords.latitude+'&long='+position.coords.longitude;
 }
