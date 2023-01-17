@@ -35,6 +35,4 @@ class Geocoding
     {
         return $this->longitude;
     }
-
-
 }
