@@ -22,7 +22,6 @@ if (isset($_GET['city']) && !empty($_GET['city']))
         $city=$_GET['city'];
         include_once('../src/controllers/HomeController.php');
     }
-echo $city;
 
 
 // On récupère les positions dans le GET dans les variables PHP
@@ -33,8 +32,9 @@ if (isset($_GET['latitude']) && !empty($_GET['latitude']) && isset($_GET['longit
         include_once('../src/controllers/HomeController.php');
     }
 
-var_dump($latitude, $longitude);
+
 
 include_once '../views/home/' . $_page . '.php';
 
-?>
+
+include_once "../src/models/weathercodeImgModel.php";?>
