@@ -1,10 +1,10 @@
 <?php
 class Meteo {
-    public $hourlyTemp;
+    public $hourlyTemperature;
     public $hourlyHumidity;
     public $hourlyWeathercode;
-    public $dailyMinTemp;
-    public $dailyMaxTemp;
+    public $dailyMinTemperature;
+    public $dailyMaxTemperature;
     public $dailyWeathercode;
     public $dailyWindSpeed;
     public $today;
@@ -17,19 +17,19 @@ class Meteo {
     function requestAPI(object $class){
         $today = date('Y-m-d');
         $lastDay = date('Y-m-d',strtotime($today.'+6 days'));
-        $openMeteoJson = file_get_contents("https://api.open-meteo.com/v1/dwd-icon?latitude=" . $class->getLatitude() . "&longitude=" . $class->getLongitude() . "&hourly=temperature_2m,relativehumidity_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&timezone=auto&start_date=".$today."&end_date=".$today);
+        $openMeteoJson = file_get_contents("https://api.open-meteo.com/v1/dwd-icon?latitude=" . $class->getLatitude() . "&longitude=" . $class->getLongitude() . "&hourly=temperature_2m,relativehumidity_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&timezone=auto&start_date=".$today."&end_date=".$lastDay);
         $openMeteoObject = json_decode($openMeteoJson);
-        $this->hourlyTemp = $openMeteoObject->hourly->temperature_2m;
+        $this->hourlyTemperature = $openMeteoObject->hourly->temperature_2m;
         $this->hourlyHumidity = $openMeteoObject->hourly->relativehumidity_2m;
         $this->hourlyWeathercode = $openMeteoObject->hourly->weathercode;
-        $this->dailyMinTemp = $openMeteoObject->daily->temperature_2m_min;
-        $this->dailyMaxTemp = $openMeteoObject->daily->temperature_2m_max;
+        $this->dailyMinTemperature = $openMeteoObject->daily->temperature_2m_min;
+        $this->dailyMaxTemperature = $openMeteoObject->daily->temperature_2m_max;
         $this->dailyWeathercode = $openMeteoObject->daily->weathercode;
         $this->dailyWindSpeed = $openMeteoObject->daily->windspeed_10m_max;
         
     }
-    function getHourlyTemp(){
-        return $this->hourlyTemp;
+    function getHourlyTemperature(){
+        return $this->hourlyTemperature;
     }
     function getHourlyHumidity(){
         return $this->hourlyHumidity;
@@ -37,11 +37,11 @@ class Meteo {
     function getHourlyWeathercode(){
         return $this->hourlyWeathercode;
     }
-    function getDailyMinTemp(){
-        return $this->dailyMinTemp;
+    function getDailyMinTemperature(){
+        return $this->dailyMinTemperature;
     }
-    function getDailyMaxTemp(){
-        return $this->dailyMaxTemp;
+    function getDailyMaxTemperature(){
+        return $this->dailyMaxTemperature;
     }
     function getDailyWeathercode(){
         return $this->dailyWeathercode;

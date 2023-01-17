@@ -33,6 +33,8 @@ if (isset($_GET['latitude']) && !empty($_GET['latitude']) && isset($_GET['longit
     }
 
 
+
 include_once '../views/home/' . $_page . '.php';
 
-?>
+
+include_once "../src/models/weathercodeImgModel.php";?>

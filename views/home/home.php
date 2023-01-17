@@ -11,33 +11,28 @@
 
   <link rel="stylesheet" type="text/css" href="/src/assets/css/style.css" >
   
-   <?php include_once "../src/controllers/homeController.php" ?>  
+   <?php //include_once "../src/controllers/homeController.php" ?>  
+    <?php include_once "../src/models/weathercodeImgModel.php" ?>
     
 
 </head>
 <body>
-<header>
-<div class="header-left">
-        <label id="switch" class="switch">
+<div class="container">
+    <label id="switch" class="switch">
             <input type="checkbox" onchange="toggleTheme()" id="slider">
             <span class="slider round"></span>
         </label>
     <!-- <button id="switch" onclick="toggleTheme()">Switch</button> -->
-    </div>
-    <div>
-        <form action="" method="get">
-            <label for="city">City :</label>
-            <input type="text" id="city" name="city" required>
-            <button type="submit"> OK </button>
-        </form>
-    </div>
-    <div>
-        <button onclick="getLocation()">Give my position</button>
-    </div>
-  
-</header>
+</div>
 <section>
-
+  <div>
+    <form action="" method="get">
+    <label for="city">City :</label>
+    <input type="text" id="city" name="city">
+    <button type="submit"> OK </button>
+    <button onclick="getLocation()" class="selectButton">Give my position</button>
+    </form>
+    </div>
     <p class="dateOfCurrentDay"><?php echo date('l jS \of F Y h:i A'); ?></p>
     <div class="currentMeteo">
     <span> <img src="../src/assets/img/icon_snow.png" rel="icon"  alt="icone"> </span>
@@ -45,24 +40,23 @@
 </div>
 </section>
 <section>
-    <div class="weatherBy5hours">
-    <?php for ($i = 0; $i < 5; $i++) 
-    {
-        echo " <div>
-              <p> Now </p>
-              <img class='sizeIcone' src='../src/assets/img/icon_rain.png' alt='icone'> <br>
-                <img class='iconeSmaller' src='../src/assets/img/icon_humidite.png' alt='icone'>
-                <p> 14% </p>
-                <img class='iconeSmaller' src='../src/assets/img/icon_wind-face.png' alt='icone'>
-                <p> 4 m/s <p>
-                </div>";
-    }?>    
+    <div class="weatherBy4hours">
+    <?php 
+
+    for ($i = 0; $i < 24; $i=$i+4) { 
+        echo 
+         "<div><p>{$meteoCity->getHourlyTemperature()[$i]} °C </p>
+         <img class='sizeIcone' src='".WeathercodeImg::getIconFileName($meteoCity->getHourlyWeathercode()[$i])."' alt='icone'>
+            <p> {$meteoCity->getHourlyHumidity()[$i]}% </p></div>";
+        }?>    
     </div>
 <script src="../views/home/showPosition.js"></script>
 </section>
 <section>    
+
     <div class="weatherByWeek">
     <?php
+   
     for ($i = 0; $i < 7; $i++) {
         $nameday = date('l', strtotime("+$i days"));
         if ($i == 0) {
@@ -74,11 +68,10 @@
                 echo $nameday;
                 echo "</p>
                 </div>
-                <img class='sizeIcone' src='../src/assets/img/icon_sun.png' alt='icone'>
-                <img class='iconeSmaller' src='../src/assets/img/icon_humidite.png' alt='icone'>
-                <p> 14% </p>
+                <img class='sizeIcone' src='".WeathercodeImg::getIconFileName($meteoCity->getDailyWeathercode()[$i])."' alt='icone'>
+                <p>{$meteoCity->getDailyMinTemperature()[$i]} / {$meteoCity->getDailyMaxTemperature()[$i]} °C </p>
                 <img class='iconeSmaller' src='../src/assets/img/icon_wind-face.png' alt='icone'>
-                <p> 4 m/s <p>
+                <p>{$meteoCity->getDailyWindSpeed()[$i]} m/s </p>
                 </div>";
 }
 ?>
